@@ -1,0 +1,100 @@
+<ion-header color="primary">
+
+  <ion-toolbar>
+
+    <ion-buttons>
+      <ion-back-button href="stock" text="Retour">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Produits
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+  <ion-card >
+
+    <ion-card-header color="primary" size="large" class="ion-text-center">
+      AJOUTER UN NOUVEAU PRODUIT
+    </ion-card-header>
+
+    <ion-card-content *ngIf="data">
+      <div class="form-group">
+
+        <ion-input class="form-control" placeholder="Nom du produit" [(ngModel)]="nom_produits"></ion-input>
+        <ion-input class="form-control" placeholder="Prix du produit" [(ngModel)]="prix_produits"></ion-input>
+
+        <ion-item lines="none">
+          <ion-label color="primary">
+            Catégorie
+          </ion-label><br />
+
+          <ion-select [(ngModel)]="id_categories">
+            <ion-select-option *ngFor="let cat of categorieList" value="{{ cat.id_categories }}">
+              {{ cat.nom_categories }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="primary">
+            Ingrédients
+          </ion-label>
+
+          <ion-select multiple="true" [(ngModel)]="ingredients_list">
+            <ion-select-option *ngFor="let ingredient of ingredientList" value="{{ ingredient.id_ingredients }}">{{ ingredient.nom_ingredients }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </div>
+
+      <ion-button color="success" expand="block" (click)="addNewProduct(prix_produits, nom_produits, ingredients_list, id_categories)">
+        <ion-icon name="add-circle" slot="end"></ion-icon>
+        Ajouter
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let item of data.value">
+    <ion-card-header color="primary">
+      {{ item.nom_produits }}
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          prix : {{ item.prix_produits | currency:'EUR'}}
+        </ion-item>
+        <ion-label class="ion-text-center" color="primary">
+          Liste des ingrédients
+        </ion-label>
+        <ion-item lines="none"> 
+          <ion-list>
+            <ion-item *ngFor="let ing of item.id_ingredients">
+              {{ ing.nom_ingredients }}
+            </ion-item>
+          </ion-list>
+        </ion-item>
+        <ion-item *ngIf="item.img_produits" lines="none">
+          <ion-img src="../../../../../../assets/{{item.img_produits}}"></ion-img>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <ion-button color="primary" (click)="openModify(item.identifiant_produits)" #modif>
+          Modifier
+        </ion-button>
+        <ion-button color="danger" (click)="deleteProduct(item.id_produits)">
+          Supprimer
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

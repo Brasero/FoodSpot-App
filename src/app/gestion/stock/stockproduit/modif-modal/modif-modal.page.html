@@ -1,0 +1,45 @@
+<ion-content fullscreen>
+  
+  <div class="ion-text-end">
+    <ion-button (click)='close()' fill='clear' color="danger">
+      <ion-icon name="close" slot="start"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="ion-text-center">
+    
+    <ion-input [(ngModel)]="subject.nom_produits">
+      <ion-label color="primary">
+        Nom :
+      </ion-label>
+    </ion-input>
+  </div>
+
+  <div class="ion-text-center"> 
+    <ion-input [(ngModel)]="subject.prix_produits">
+      <ion-label color="primary">
+        Prix :
+      </ion-label>
+    </ion-input>
+  </div>
+
+  <div class="ion-text-center">
+    <ion-input [(ngModel)]="subject.dispo_produits">
+      <ion-label color="primary">
+        Disponibilité :
+      </ion-label>
+    </ion-input>
+  </div>
+
+  <div class="ion-text-center" *ngIf="subject.img_produits">
+    <ion-img [src]="'../../../../assets/' + subject.img_produits" alt="Aucune image"></ion-img>
+  </div>
+
+  <div class="ion-text-center">
+    <ion-button expand="full" fill="solid" color="success" (click)="validateConfirm()">
+      <ion-icon name="checkmark-outline"></ion-icon>
+      Valider
+    </ion-button>
+  </div>
+
+</ion-content>

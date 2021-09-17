@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button href="acceuil" text="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>stock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button size="large" fill="clear" expand="block" color="medium" (click)="moveToIngredients()">
+    Ingrédients
+  </ion-button>
+
+  <ion-button size="large" fill="outline" expand="block" color="primary" (click)="moveToProduits()">
+    Produits
+  </ion-button>
+
+  <ion-button size="large" fill="solid" expand="full" color="secondary" (click)="moveToCategories()">
+    Catégories
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<div id="back"></div>
+<ion-header>
+ <ion-title>
+   <p color="primary">{{ type }}</p>
+ </ion-title>
+</ion-header>
+
+<ion-content>
+  <ion-grid id="listeMenu">
+    <ion-row *ngFor="let i of data">
+      <ion-col (click)="naviguate('tabs/tab1/itemList/'+i.id_categories+'')" size-sm="12" size-lg="12" size-md="12">
+        <div class="backdrop" [style.background]="'url(../../assets/'+i.img_categories+')'" [style.background-position]="'center'"></div>
+        <div class="colText">
+          {{ i.nom_categories }}
+        </div>
+        <ion-icon name="chevron-forward" class="chevron" size="large" color="light"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button id="menuButton" size="large" expand="full"><p id="menuText">Menus</p></ion-button> 
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #carte>
+      <div class="cart-lenght">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

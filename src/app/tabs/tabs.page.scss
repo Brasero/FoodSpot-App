@@ -1,0 +1,29 @@
+ion-tab-bar
+{
+    padding-top: 7%;
+    --color-selected: rgb(21, 189, 240);
+    background: linear-gradient(90deg, #15bdf0, white, white);
+    --background: white;
+    --color: silver;
+}
+
+ion-tab-button ion-label
+{
+    font-size: 8px;
+    word-wrap: unset;
+}
+
+ion-tab-button
+{
+    width: 20%;
+}
+
+#logoMenu.md
+{
+    transform: scale(3);
+}
+
+#logoMenu.ios
+{
+    transform: scale(1.5);
+}

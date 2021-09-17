@@ -1,0 +1,44 @@
+<div class="filter"></div>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button href="" text="" color="medium"></ion-back-button>
+    </ion-buttons>
+    <ion-title >{{ categorie | async }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="filter"></div>
+  <ion-card *ngFor="let i of data[0]; let index = index">
+    <ion-card-header [style.background]="'url(../../assets/'+i.img_produits+')'">
+      <p class="cardTitle" *ngIf="i.img_produits != null" color="primary">
+        {{ i.nom_produits }} 
+      </p>
+
+      <p class="cardTitle" *ngIf='i.img_produits == null'>
+        {{ i.nom_produits }}
+      </p>
+      
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let a of i.id_ingredients" color='primary' class="ingredient">
+        {{ a.nom_ingredients }}
+      </div>
+      <div class="prix" color="medium">
+        {{ i.prix_produits | currency:'EUR' }}
+      </div>
+      <ion-buttons slot="end" class="actionButton">
+        <ion-button color="primary" fill="outline" (click)="addToCart(i)">Ajouter au panier</ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #carte>
+      <div class="cart-lenght">{{ carteItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>

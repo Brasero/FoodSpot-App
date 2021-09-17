@@ -1,0 +1,66 @@
+<ion-content id="acceuilPage" color="transparent" >
+
+  <div id="filtre"></div>
+
+
+  <ion-card id="horaires">
+    <ion-card-header>
+      <ion-card-title color="light">
+        FOOD SPOT
+      </ion-card-title>
+      <ion-card-subtitle>
+        Nancy
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card  class="btn">
+    <ion-card-content>
+      Commander en
+      <ion-button color="light" fill="outline" expand="block" (click)="commande(0)">
+        <ion-icon name="cart-outline" slot="start"></ion-icon>
+        Click & Collect
+      </ion-button>
+      <ion-button color="primary" expand="block" *ngIf="connected == true" (click)="commande(1)">
+        <ion-icon name="car-sport" slot="start"></ion-icon>
+        Livraison
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id="connectWay" *ngIf="connected != true">
+    <ion-card-content>
+      <ion-button id="connexionButton"  color="medium" fill="outline" expand="block" (click)="connexion()">
+        Connexion
+      </ion-button>
+      <ion-button id="inscriptionButton" color="primary" expand="block" (click)="signClick()">Inscription</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id="client" *ngIf="connected == true">
+    <ion-card-content>
+      <ion-card-title>Bienvenue</ion-card-title>
+      <ion-card-subtitle> {{ infoUser.prenom_users }} </ion-card-subtitle>
+      <ion-button color="light" fill="outline" expand="block" (click)="routerMonCompte()">Mon compte</ion-button> 
+      <ion-button color="light" *ngIf="infoUser.isManager_users == 1" (click)="routerGestion()" fill="clear" expand="block">Gestion</ion-button>
+      <ion-button color="danger" expand="block" (click)="disconnect()">Deconnexion</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id="lastCommande" *ngIf="connected == true">
+    <ion-card-header>
+      <ion-card-subtitle>Mes dérnières commandes</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #carte>
+      <div class="cart-lenght">{{ cartItemcount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

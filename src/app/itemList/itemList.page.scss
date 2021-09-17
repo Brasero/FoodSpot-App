@@ -1,0 +1,62 @@
+ion-card-header
+{
+    height: 150px;
+    background-size: contain;
+    color: black;
+}
+
+.ingredient
+{
+    --color: var(--ion-color-primary);
+    color: var(--ion-color-primary);
+}
+
+.filter
+{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(15px);
+}
+
+ion-content
+{
+    columns: 2;
+    column-count: auto;
+    background: transparent;
+    background-size: cover;
+    background-position: bottom;
+    --background: url(../../assets/salade.jpg);
+    backdrop-filter: blur(15px);
+}
+
+.cardTitle
+{
+    backdrop-filter: blur(10Px);
+    padding: 2px 5px;
+    width: max-content;
+}
+
+ion-toolbar
+{
+    --background: transparent;
+    color: white;
+    border: none;
+    padding-top: unset;
+    --border-width: 0px;
+}
+
+ion-header
+{
+    border: none;
+    backdrop-filter: blur(100px);
+    padding-top: unset;
+}
+
+.actionButton
+{
+    display: flex;
+    flex-direction: row-reverse;
+}

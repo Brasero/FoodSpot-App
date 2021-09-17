@@ -1,0 +1,40 @@
+<div id="filtre"></div>
+<ion-header [translucent]="true" *ngIf="isConnected">
+  <ion-toolbar>
+    <ion-title color="primary">Mon compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="transparent" *ngIf="isConnected">
+ <ion-button color="primary" shape="rounded" expand="full" (click)="dataLog()">Données de la page</ion-button>
+ <ion-card color="transparent" id="userInfo">
+   <ion-card-header>
+     <ion-card-title>
+       Informations personnelles
+     </ion-card-title>
+   </ion-card-header>
+   <ion-card-content>
+     <ion-item color="transparent"> 
+      <ion-label color="primary" for="nom">Nom</ion-label>
+      <ion-input [(ngModel)]="userInfo.nom_users" type="text" id="nom"></ion-input>
+     </ion-item>
+     <ion-item color="transparent">
+       <ion-label color="primary" for="prenom">Prénom</ion-label>
+       <ion-input [(ngModel)]="userInfo.prenom_users" type="text" id="prenom"></ion-input>
+     </ion-item>
+     <ion-item color="transparent">
+       <ion-label for="mail" color="primary">Adresse mail</ion-label>
+       <ion-input [(ngModel)]="userInfo.mail_users" type="email" id="mail"></ion-input>
+     </ion-item>
+     <ion-item color="transparent">
+       <ion-label for="adresse" color="primary">Adresse</ion-label>
+       <ion-input [(ngModel)]="userInfo.adresse_users" type="text" id="adresse"></ion-input>
+     </ion-item>
+     <ion-item color="transparent">
+       <ion-label for="tel" color="primary">Téléphone</ion-label>
+       <ion-input [(ngModel)]="userInfo.tel_users" type="text" id="tel"></ion-input>
+     </ion-item>
+     <ion-button color="success" expand="block" (click)="updateUser()">Modifier</ion-button>
+   </ion-card-content>
+ </ion-card>
+</ion-content>

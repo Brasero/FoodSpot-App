@@ -1,0 +1,101 @@
+#startButton
+{
+    height: 30%;
+    background: #15bdf0;
+    background-clip: content-box;
+    background-position: bottom;
+    border-radius: 20%/30%;
+    font-size: 1.5em;
+    border: 1px solid white;
+    box-shadow: 1px 1px 5px black;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10%;
+}
+
+#client
+{
+    color: white;
+    background: #15bdf0;
+}
+
+.btn
+{
+    color: white;
+    background: #15bdf0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#acceuilPage
+{
+    --background: none;
+    z-index: 100;
+}
+
+#horaires
+{
+    background: #15bdf0;
+    color: white;
+    align-items: center;
+    margin-top: 15px;
+    text-align: center;
+    //box-shadow: 1px 1px 6px black;
+    margin-right: 10px;
+    margin-left: 10px;
+    //border-radius: 15%/40%;
+}
+
+.alertCustom .alert-wrapper
+{
+    background: linear-gradient(45deg, #15bdf0, white, white) !important;
+}
+
+
+ion-card-title, ion-card-subtitle
+{
+    color: white;
+}
+
+#lastCommande ion-card-subtitle
+{
+    color: var(--ion-color-primary);
+}
+
+ion-fab-button{
+    height: 50px;
+    width: 50px;
+}
+
+.cart-icon{
+    font-size: 45px;
+}
+
+.cart-lenght{
+    color: var(--ion-color-primary);
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-weight: 600;
+    font-size: 1em;
+    min-width: 25px;
+    z-index: 10;
+}
+
+
+#filtre
+{
+    background: white;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-position-x: left;
+    filter: blur(40px, white);
+    border: none;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

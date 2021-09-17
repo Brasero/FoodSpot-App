@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <p>
+        Gestion FoodSpot
+      </p>
+    </ion-title>
+    <br />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <small>Bienvenue <span>{{ infoUser.prenom_users }} </span></small>
+
+  <ion-button expand="block" color="light" size="large" (click)="naviguateToStock()">Ajout/Modification/Suppression</ion-button>
+  <ion-button expand="block" color="primary" size="large" (click)="naviguateToCommande()">Commandes en cours</ion-button>
+  <ion-button expand="full" color="danger" size="large" (click)="disconnect()">Quitter</ion-button>
+
+</ion-content>

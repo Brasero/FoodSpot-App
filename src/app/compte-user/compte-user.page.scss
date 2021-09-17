@@ -1,0 +1,26 @@
+#filtre
+{
+    background: linear-gradient(45deg, #15bdf0, white) !important;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-position-x: left;
+    filter: blur(40px, white);
+    border: none;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+ion-content, ion-header
+{
+    --background: transparent;
+}
+
+ion-title
+{
+    padding-inline: unset;
+}

@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button href="acceuil" text="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Commandes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let item of commandeList.value | keyvalue">
+
+    <ion-card-header>
+      <ion-card-title color="primary">
+        Commande N° 
+      </ion-card-title>
+
+      <ion-card-subtitle color="muted">
+        {{ item.key }}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="muted">
+        Le {{ item.value.date }}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="warning" *ngIf='item.value.statut.statut_commande_value == 0'>
+        En attente
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="warning" *ngIf='item.value.statut.statut_commande_value == 1'>
+        Validé
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="success" *ngIf='item.value.statut.statut_commande_value == 2'>
+        Livré
+      </ion-card-subtitle>
+
+      <ion-card-subtitle color="danger" *ngIf='item.value.statut.statut_commande_value == 3'>
+        Refusé
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list *ngFor="let i of item.value | keyvalue" lines="none">
+        <ion-item *ngIf="i.key != 'userInfo' && i.key != 'total' && i.key != 'date' && i.key != 'statut'">
+          <ion-title>
+            {{ i.value.nom_produits }} 
+            <span color="primary">
+               x {{ i.value.qte }} 
+            </span>
+          </ion-title>
+        </ion-item>
+      </ion-list>
+
+      <ion-card-subtitle color="muted">
+        Total : 
+        <span color="primary">
+           {{ item.value.total | currency : 'EUR' }} 
+        </span>
+      </ion-card-subtitle>
+
+      <ion-buttons *ngIf='item.value.statut.statut_commande_value == 0'>
+        <ion-button fill="outline" expand="block" color="danger" (click)="refuseCommande(item.key)">
+          Refuser
+        </ion-button>
+        <ion-button  color="success" expand="block" fill="solid" (click)="acceptCommande(item.key)">
+          Accepter
+        </ion-button>
+      </ion-buttons>
+
+      
+      <ion-button fill="solid" color="success" expand="full" (click)="validateLivraison(item.key)" *ngIf="item.value.statut.statut_commande_value == 1">
+        <ion-icon name="checkmark-outline"></ion-icon>
+        Livré
+      </ion-button>
+    
+    </ion-card-content>
+
+
+  </ion-card>
+
+</ion-content>

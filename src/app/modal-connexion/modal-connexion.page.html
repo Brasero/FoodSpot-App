@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-title color="primary" class="ion-padding">
+      Connexion    
+  </ion-title>
+
+  <div class="ion-text-end"> 
+    <ion-button (click)="close()" fill="clear" color="danger">
+      <ion-icon name="close" slot="start"></ion-icon>
+    </ion-button>
+  </div>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding" [formGroup]="formGroup">
+
+    <ion-list *ngFor="let form of formGroup.controls | keyvalue">
+
+      <ion-item>
+        <ion-label color="primary"> {{ form.key }} </ion-label>
+        <ion-input inputmode="mail" formControlName="{{ form.key }}"></ion-input>
+      </ion-item>
+      
+    </ion-list>
+
+  </div>
+
+  <ion-button expand="full"  color="success" size="large" (click)="checkConnexion()">
+    Se connecter
+  </ion-button>
+
+</ion-content>

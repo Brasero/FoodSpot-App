@@ -1,0 +1,7 @@
+{
+  "name": "maquetteFoodSpot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
